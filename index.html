@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seven Beer</title>
+  <link rel="stylesheet" href="css/framework7.bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: sans-serif;
+      overflow-y: auto;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 24px;
+      padding: 15px 0;
+    }
+
+    .title img {
+      height: 30px;
+      width: 30px;
+    }
+
+    .categories {
+      display: flex;
+      gap: 10px;
+      padding: 0 15px;
+      margin-bottom: 20px;
+    }
+
+    .category-btn {
+      padding: 10px 20px;
+      border-radius: 25px;
+      background-color: #222;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .category-btn.active {
+      background-color: #e74c3c;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 10px 140px;
+      box-sizing: border-box;
+    }
+
+    .product-card {
+      background-color: #111;
+      border-radius: 15px;
+      margin: 1%;
+      padding: 10px;
+      text-align: center;
+      flex: 0 0 48%; 
+      box-sizing: border-box;
+    }
+
+    .product-card img {
+  width: 100%;
+  height: 160px;        
+  object-fit: cover;    
+  border-radius: 10px;
+}
+
+
+    .product-name {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px 0 5px 0;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: #bbb;
+    }
+
+    .product-price {
+      margin-top: 5px;
+      color: #e74c3c;
+      font-weight: bold;
+    }
+
+    .toolbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #111;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      border-top: 1px solid #222;
+      z-index: 1000;
+    }
+
+    .toolbar img {
+      width: 28px;
+      height: 28px;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <div class="title">
+    <img src="img/logo cervezas.png" alt="Logo" />
+    Seven Beer
+  </div>
+
+  
+  <div class="categories">
+    <button id="btn-importadas" class="category-btn active">Importadas</button>
+    <button id="btn-locales" class="category-btn">Locales</button>
+  </div>
+
+  
+  <div class="products">
+    
+    <div class="product-card category-importadas">
+      <img src="img/corona.jpg" alt="Corona Extra" />
+      <div class="product-name">Corona Extra</div>
+      <div class="product-desc">Cerveza mexicana</div>
+      <div class="product-price">L 200</div>
+    </div>
+
+    <div class="product-card category-importadas">
+      <img src="img/heineken.jpg" alt="Heineken" />
+      <div class="product-name">Heineken</div>
+      <div class="product-desc">Cerveza holandesa</div>
+      <div class="product-price">L 250</div>
+    </div>
+
+    <div class="product-card category-importadas">
+      <img src="img/Stella_Artois_Botella.jpg" alt="Stella Artois" />
+      <div class="product-name">Stella Artois</div>
+      <div class="product-desc">Cerveza belga</div>
+      <div class="product-price">L 200</div>
+    </div>
+
+    <div class="product-card category-importadas">
+      <img src="img/budweiser.jpg" alt="Budweiser" />
+      <div class="product-name">Budweiser</div>
+      <div class="product-desc">Cerveza americana</div>
+      <div class="product-price">L 250</div>
+    </div>
+
+    
+    <div class="product-card category-locales" style="display: none;">
+      <img src="img/salva vida.jpg" alt="Salva Vida" />
+      <div class="product-name">Salva Vida</div>
+      <div class="product-desc">Hondureña clásica</div>
+      <div class="product-price">L 150</div>
+    </div>
+
+    <div class="product-card category-locales" style="display: none;">
+      <img src="img/barena.jpg" alt="Barena" />
+      <div class="product-name">Barena</div>
+      <div class="product-desc">Estilo refrescante</div>
+      <div class="product-price">L 150</div>
+    </div>
+
+    <div class="product-card category-locales" style="display: none;">
+      <img src="img/imperial.jpg" alt="Imperial" />
+      <div class="product-name">Imperial</div>
+      <div class="product-desc">Cerveza clara nacional</div>
+      <div class="product-price">L 150</div>
+    </div>
+
+    <div class="product-card category-locales" style="display: none;">
+      <img src="img/port royal.jpg" alt="Port Royal" />
+      <div class="product-name">Port Royal</div>
+      <div class="product-desc">Premium hondureña</div>
+      <div class="product-price">L 150</div>
+    </div>
+  </div>
+
+  
+  <div class="toolbar">
+    <img src="img/home.png" alt="Home" />
+    <img src="img/corazon.png" alt="Favorito" />
+    <img src="img/cart.jpg" alt="Carrito" />
+  </div>
+
+  
+  <script>
+    const btnImportadas = document.getElementById("btn-importadas");
+    const btnLocales = document.getElementById("btn-locales");
+    const importadas = document.querySelectorAll(".category-importadas");
+    const locales = document.querySelectorAll(".category-locales");
+
+    btnImportadas.addEventListener("click", () => {
+      btnImportadas.classList.add("active");
+      btnLocales.classList.remove("active");
+      importadas.forEach(el => el.style.display = "block");
+      locales.forEach(el => el.style.display = "none");
+    });
+
+    btnLocales.addEventListener("click", () => {
+      btnLocales.classList.add("active");
+      btnImportadas.classList.remove("active");
+      importadas.forEach(el => el.style.display = "none");
+      locales.forEach(el => el.style.display = "block");
+    });
+  </script>
+
+</body>
+</html>
